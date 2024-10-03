@@ -1,0 +1,52 @@
+# Ignore Visual Studio temporary files, build results, and
+# user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Ignore NuGet Packages
+*.nupkg
+# The packages folder can be ignored if NuGet restore is used
+**/[Pp]ackages/*
+# Uncomment if necessary however generally it will be restored in clean build
+#!**/[Pp]ackages/build/
+#!**/[Pp]ackages/rebuild/
+
+# Ignore other Visual Studio project files
+*.cache
+*.ilk
+*.log
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+
+# Ignore Code Analysis results
+*.codanalysissuppressions
+
+
