@@ -7,8 +7,24 @@ class Board {
 private:
     int n;  // Size of the board (n x n)
     vector<vector<int>> grid;  // Dynamic 2D vector to represent the grid
-    const int PLAYER_1_VALUE=1;
-    const int PLAYER_2_VALUE=2;
+    const int PLAYER_1_VALUE = 1;
+    const int PLAYER_2_VALUE = 2;
+    bool checkHorizontalWin(int player_number) {
+        bool won = true;
+        for (int row = 0; row < n; row++) {
+            for (int column = 0; column < n; column++) {
+                if (grid[row][column] == player_number) continue;
+                else {
+                    won = false;
+                    break;
+                }
+            }
+            if (won) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 public:
     // Constructor to initialize the grid with size n
@@ -23,23 +39,15 @@ public:
             this->grid[row][column] = value;
         }
     }
+
    
     bool checkWin(int player_number) {
         //check on horizontal line
-        bool won = true;
-        for (int row = 0; row < n; row++) {
-            for (int column = 0; column < n; column++) {
-                if (grid[row][column] == player_number) continue;
-                else {
-                    won = false;
-                    break;
-                }
-            }
-            if (won) {
-                return true;
-            }
-        } 
-    
+        bool isHorizontalWin = checkHorizontalWin(player_number);
+        if (isHorizontalWin) {
+            return true;
+        }
+        return false;
     }
 
     // Method to display the grid
