@@ -99,6 +99,48 @@ public:
 
         cout << "---------------------------" << endl;
     }
+    void testCheckDiagonalWin() {
+    cout << "Test: Checking diagonal win conditions..." << endl;
+
+    // Test 1: Primary diagonal win for player 1
+    Board board1(3);
+    board1.setValue(0, 0, 1);
+    board1.setValue(1, 1, 1);
+    board1.setValue(2, 2, 1);
+    board1.display();
+    if (board1.checkWin(1)) {
+        cout << "Primary diagonal win (Player 1): PASSED" << endl;
+    } else {
+        cout << "Primary diagonal win (Player 1): FAILED" << endl;
+    }
+
+    // Test 2: Secondary diagonal win for player 2
+    Board board2(3);
+    board2.setValue(0, 2, 2);
+    board2.setValue(1, 1, 2);
+    board2.setValue(2, 0, 2);
+    board2.display();
+    if (board2.checkWin(2)) {
+        cout << "Secondary diagonal win (Player 2): PASSED" << endl;
+    } else {
+        cout << "Secondary diagonal win (Player 2): FAILED" << endl;
+    }
+
+    // Test 3: No diagonal win for player 1
+    Board board3(3);
+    board3.setValue(0, 0, 1);
+    board3.setValue(1, 1, 2);  // Mixed player values
+    board3.setValue(2, 2, 1);
+    board3.display();
+    if (!board3.checkWin(1)) {
+        cout << "No diagonal win for Player 1: PASSED" << endl;
+    } else {
+        cout << "No diagonal win for Player 1: FAILED" << endl;
+    }
+
+    cout << "---------------------------" << endl;
+}
+
 
 };
 
@@ -109,5 +151,6 @@ int main() {
     test.testSetValue();          // Test setting values  
     test.testCheckHorizontalWin(); // Test horizontal win-checking functionality
     test.testCheckVerticalWin();
+    test.testCheckDiagonalWin();
     return 0;
 }

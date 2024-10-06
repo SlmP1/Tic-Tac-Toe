@@ -43,6 +43,28 @@ private:
         return false;
     }
 
+    bool checkDiagonalWin(int player_number) {
+        bool wonPrimary = true;
+        bool wonSecondary = true;
+
+        // Check primary diagonal (top-left to bottom-right)
+        for (int i = 0; i < n; i++) {
+            if (grid[i][i] != player_number) {
+                wonPrimary = false;
+            }
+        }
+
+        // Check secondary diagonal (top-right to bottom-left)
+        for (int i = 0; i < n; i++) {
+            if (grid[i][n - i - 1] != player_number) {
+                wonSecondary = false;
+            }
+        }
+
+        return wonPrimary || wonSecondary;
+    }
+
+
 public:
     // Constructor to initialize the grid with size n
     Board(int n) {
@@ -68,7 +90,12 @@ public:
         if (isVerticalWin) {
             return true;
         }
+        bool isDiagonalWin = checkDiagonalWin(player_number);
+        if (isDiagonalWin) {
+            return true;
+        }
         return false;
+        
         
     }
 
