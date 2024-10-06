@@ -20,7 +20,7 @@ public:
         board.display();
         cout << "---------------------------" << endl;
     }
-    void testCheckWin() {
+    void testCheckHorizontalWin() {
         cout << "Test: Checking horizontal win conditions..." << endl;
 
         // Test 1: Horizontal win for player 1
@@ -55,6 +55,50 @@ public:
 
         cout << "---------------------------" << endl;
     }
+    void testCheckVerticalWin() {
+        cout << "Test: Checking vertical win conditions..." << endl;
+
+        // Test 1: Vertical win for player 1
+        Board board1(3);
+        board1.setValue(0, 0, 1);
+        board1.setValue(1, 0, 1);
+        board1.setValue(2, 0, 1);
+        board1.display();
+        if (board1.checkWin(1)) {
+            cout << "Vertical win (Player 1): PASSED" << endl;
+        }
+        else {
+            cout << "Vertical win (Player 1): FAILED" << endl;
+        }
+
+        // Test 2: No vertical win for player 2
+        Board board2(3);
+        board2.setValue(0, 1, 2);
+        board2.setValue(1, 1, 2);
+        board2.setValue(2, 2, 2); // No vertical line for Player 2
+        board2.display();
+        if (!board2.checkWin(2)) {
+            cout << "No vertical win for Player 2: PASSED" << endl;
+        }
+        else {
+            cout << "No vertical win for Player 2: FAILED" << endl;
+        }
+
+        // Test 3: No win case for mixed board
+        Board board3(3);
+        board3.setValue(0, 0, 1);
+        board3.setValue(1, 0, 2);
+        board3.setValue(2, 0, 1);
+        board3.display();
+        if (!board3.checkWin(1)) {
+            cout << "No vertical win for Player 1: PASSED" << endl;
+        }
+        else {
+            cout << "No vertical win for Player 1: FAILED" << endl;
+        }
+
+        cout << "---------------------------" << endl;
+    }
 
 };
 
@@ -63,6 +107,7 @@ int main() {
 
     test.testInitialization();    // Test the board initialization
     test.testSetValue();          // Test setting values  
-    test.testCheckWin();          // Test horizontal win-checking functionality
+    test.testCheckHorizontalWin(); // Test horizontal win-checking functionality
+    test.testCheckVerticalWin();
     return 0;
 }

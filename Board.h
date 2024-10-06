@@ -26,6 +26,23 @@ private:
         return false;
     }
 
+    bool checkVerticalWin(int player_number) {
+        bool won = true;
+        for (int row = 0; row < n; row++) {
+            for (int column = 0; column < n; column++) {
+                if (grid[column][row] == player_number) continue;
+                else {
+                    won = false;
+                    break;
+                }
+            }
+            if (won) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 public:
     // Constructor to initialize the grid with size n
     Board(int n) {
@@ -47,7 +64,12 @@ public:
         if (isHorizontalWin) {
             return true;
         }
+        bool isVerticalWin = checkVerticalWin(player_number);
+        if (isVerticalWin) {
+            return true;
+        }
         return false;
+        
     }
 
     // Method to display the grid
