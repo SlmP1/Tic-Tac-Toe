@@ -10,6 +10,7 @@ public:
 		this->index = index;  //
 	}
 	void makeMove(int row, int col) {
-		board.setValue(row, col, this->index);
+		this->board.setValue(row, col, this->index);
+		cout <<"rame" << index<<endl;
 	}
 };

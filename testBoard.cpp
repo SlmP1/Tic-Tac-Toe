@@ -1,5 +1,5 @@
 #include "Board.h"
-
+#include "testPlayer.cpp"
 class BoardTest {
 public:
     // Test initializing the board with a given size
@@ -152,5 +152,9 @@ int main() {
     test.testCheckHorizontalWin(); // Test horizontal win-checking functionality
     test.testCheckVerticalWin();
     test.testCheckDiagonalWin();
+
+    Board board1(3);
+    PlayerTest testPlayer;
+    testPlayer.testMakeMove(board1);
     return 0;
 }

@@ -73,10 +73,11 @@ public:
     }
 
     void setValue(int row,int column,int value) {
-
+        cout << row << "rame" << column <<" " << value << endl;
         if(this->grid[row][column]==0 && (value== PLAYER_1_VALUE || value== PLAYER_2_VALUE)){
             this->grid[row][column] = value;
         }
+        display();
     }
 
    

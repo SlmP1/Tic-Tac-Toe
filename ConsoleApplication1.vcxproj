@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="testBoard.cpp" />
+    <ClCompile Include="testPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
